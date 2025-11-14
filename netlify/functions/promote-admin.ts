@@ -10,8 +10,10 @@ export const handler: Handler = async (event) => {
     const decoded = await admin.auth().verifyIdToken(idToken)
     const uid = decoded.uid
     const email = decoded.email || ""
-    const allow = (process.env.ADMIN_EMAILS || "").split(/[,\s]+/).filter(Boolean)
-    if (!email || !allow.includes(email)) return { statusCode: 403, body: "forbidden" }
+    const allowEmails = (process.env.ADMIN_EMAILS || "").split(/[,\s]+/).filter(Boolean)
+    const allowUids = (process.env.ADMIN_UIDS || "").split(/[,\s]+/).filter(Boolean)
+    const allowed = (email && allowEmails.includes(email)) || allowUids.includes(uid)
+    if (!allowed) return { statusCode: 403, body: "forbidden" }
     await firestore.collection("users").doc(uid).set({ uid, email, role: "admin" }, { merge: true })
     return { statusCode: 200, body: "ok" }
   } catch (e: any) {
