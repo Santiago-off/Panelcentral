@@ -1,0 +1,8 @@
+.env
+node_modules/
+dist/
+build/
+functions/private*
+credentials.json
+.DS_Store
+Thumbs.db
