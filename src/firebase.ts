@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD2FZQJEv-2JbyYrve9Odw6F_Y2YRYwpqQ",
-  authDomain: "panelcentralweb.firebaseapp.com",
-  projectId: "panelcentralweb",
-  storageBucket: "panelcentralweb.firebasestorage.app",
-  messagingSenderId: "1025406460370",
-  appId: "1:1025406460370:web:b0e8f55f96d0b84097280b"
+  apiKey: "AIzaSyDH9sAkWdQHbPWjR27Hlh_ZvVjCoP8LEUc",
+  authDomain: "panelweb-76d15.firebaseapp.com",
+  projectId: "panelweb-76d15",
+  storageBucket: "panelweb-76d15.firebasestorage.app",
+  messagingSenderId: "456618044374",
+  appId: "1:456618044374:web:e5a1e5c084cc165d695277"
 }
 
 const app = initializeApp(firebaseConfig)
